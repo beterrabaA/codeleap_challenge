@@ -29,3 +29,6 @@ def user_change_and_delete(request,pk):
         if user_serializer.is_valid():
             user_serializer.save()
             return Response(user_serializer.data,status=status.HTTP_200_OK)
+    elif request.method == 'DELETE':
+        user.delete()
+        return Response({},status=status.HTTP_204_NO_CONTENT)
